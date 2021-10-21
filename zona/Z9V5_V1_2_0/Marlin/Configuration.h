@@ -92,7 +92,7 @@
 #define CUSTOM_MACHINE_NAME 			"Z9V5"
 #endif
 #endif
-#define	FIRMWARE_VERSION					"V1.2.0.ZONA-1"
+#define	FIRMWARE_VERSION					"V1.2.0.ZONA-2"
 #define	STRING_DISTRIBUTION_DATE  "2021-07-12"
 #define EEPROM_VERSION 			    	"V83"						//modify it if need auto inilize EEPROM after upload firmware
 #define STRING_CONFIG_H_AUTHOR    "(ZONESTAR, AHN HO JUNG)" 		// Who made the changes.
@@ -138,7 +138,7 @@
   #if ENABLED(OPTION_3DTOUCH)
   #define BLTOUCH_ON_EXP1 				//3DTouch connect to EXP1
   #endif
-#else															//LCD12864 connect to EXP1																	
+#else															//LCD12864 connect to EXP1
 	#if ENABLED(OPTION_3DTOUCH)
 	#define SERIAL_PORT_2 3					//TFT-LCD35 connect to AUX1
 	#define BLTOUCH_ON_EXP2 				//3DTouch connect to EXP2
