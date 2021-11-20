@@ -526,9 +526,14 @@
     #define DEFAULT_Kd_LIST {  76.55,  76.55 }
   #else
     // defaults
-    #define DEFAULT_Kp  21.73
-    #define DEFAULT_Ki   1.54
-    #define DEFAULT_Kd  76.55
+    //#define DEFAULT_Kp  21.73
+    //#define DEFAULT_Ki   1.54
+    //#define DEFAULT_Kd  76.55
+
+    // 24v E3D V6
+    #define DEFAULT_Kp 14.97
+    #define DEFAULT_Ki 1.09
+    #define DEFAULT_Kd 51.49
 
     // 12v E3D V6
     //#define DEFAULT_Kp 13.57
@@ -554,7 +559,7 @@
  * heater. If your configuration is significantly different than this and you don't understand
  * the issues involved, don't use bed PID until someone else verifies that your hardware works.
  */
-#define PIDTEMPBED
+//#define PIDTEMPBED
 
 //#define BED_LIMIT_SWITCHING
 
