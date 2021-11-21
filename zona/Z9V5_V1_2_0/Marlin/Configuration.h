@@ -116,7 +116,7 @@
 //#define	OPTION_TMC2225_EXTRUDER		//TMC2225 be used to extruder motors
 #define	OPTION_TMC2209_ALL_MOTOR	//TMC2209 be used to all motor
 //#define	OPTION_3DTOUCH						//Probe use 3DTouch or BLTouch
-//#define	OPTION_ZLSENSOR						//Probe use ZLSENSOR
+#define	OPTION_ZLSENSOR						//Probe use ZLSENSOR
 //#define	OPTION_REPEAT_PRINTING		//Auto remove prints feature
 //==========================================================================
 //Bed coating
@@ -163,7 +163,7 @@
    'pt_br':'Portuguese (Brazilian)', 'ru':'Russian', 'sk':'Slovak', 'tr':'Turkish', 'uk':'Ukrainian',
    'vi':'Vietnamese', 'zh_CN':'Chinese (Simplified)', 'zh_TW':'Chinese (Traditional)', 'test':'TEST' }
  */
-#define LCD_LANGUAGE ko_KR
+#define LCD_LANGUAGE en
 
 #ifdef OPTION_Z9V5_PRO
 #undef LCD_LANGUAGE
@@ -224,7 +224,7 @@
 //#define BLUETOOTH
 
 // Name displayed in the LCD "Ready" message and Info menu
-//#define CUSTOM_MACHINE_NAME "3D Printer"
+#define CUSTOM_MACHINE_NAME "ZONA"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -234,19 +234,19 @@
 
 // This defines the number of extruders
 // :[0, 1, 2, 3, 4, 5, 6, 7, 8]
-#define EXTRUDERS 1
+#define EXTRUDERS 4
 
 // Generally expected filament diameter (1.75, 2.85, 3.0, ...). Used for Volumetric, Filament Width Sensor, etc.
 #define DEFAULT_NOMINAL_FILAMENT_DIA 1.75
 
 // For Cyclops or any "multi-extruder" that shares a single nozzle.
-//#define SINGLENOZZLE
+#define SINGLENOZZLE
 
 // Save and restore temperature and fan speed on tool-change.
 // Set standby for the unselected tool with M104/106/109 T...
 #if ENABLED(SINGLENOZZLE)
-  //#define SINGLENOZZLE_STANDBY_TEMP
-  //#define SINGLENOZZLE_STANDBY_FAN
+  #define SINGLENOZZLE_STANDBY_TEMP
+  #define SINGLENOZZLE_STANDBY_FAN
 #endif
 
 /**
