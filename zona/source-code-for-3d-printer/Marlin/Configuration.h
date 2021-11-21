@@ -112,14 +112,14 @@
 #define	OPTION_WIFI_BAUDRATE				//Option WiFi baudrate
 //#define	OPTION_BGM								//BGM extruder
 //#define	OPTION_TMC2225_EXTRUDER		//TMC2225 be used to extruder motors
-//#define	OPTION_TMC2209_ALL_MOTOR	//TMC2209 be used to all motor
+#define	OPTION_TMC2209_ALL_MOTOR	//TMC2209 be used to all motor
 //#define	OPTION_3DTOUCH						//Probe use 3DTouch or BLTouch
-//#define	OPTION_ZLSENSOR						//Probe use ZLSENSOR
+#define	OPTION_ZLSENSOR						//Probe use ZLSENSOR
 //#define	OPTION_REPEAT_PRINTING		//Auto remove prints feature
 //==========================================================================
 //Special
-/* for Z9V5-MK2, if the serial number V1xxxxxxxxxx and you want to use 
- * ZLSENSOR, you have to connect the ZLSENSOR to EXP1 connector and enable 
+/* for Z9V5-MK2, if the serial number V1xxxxxxxxxx and you want to use
+ * ZLSENSOR, you have to connect the ZLSENSOR to EXP1 connector and enable
  * this option
 */
 //#define ZLSENSOR_ON_EXP1						//
@@ -144,7 +144,7 @@
   #if ENABLED(OPTION_3DTOUCH)
   #define BLTOUCH_ON_EXP1 				//3DTouch connect to EXP1
   #endif
-#else															//LCD12864 connect to EXP1																	
+#else															//LCD12864 connect to EXP1
 	#if ENABLED(OPTION_3DTOUCH)
 	#define SERIAL_PORT_2 3					//TFT-LCD35 connect to AUX1
 	#define BLTOUCH_ON_EXP2 				//3DTouch connect to EXP2
@@ -162,11 +162,11 @@
  *   en, an, bg, ca, cz, da, de, el, el_gr, es, eu, fi, fr, gl, hr, it, jp_kana,
  *   ko_KR, nl, pl, pt, pt_br, ru, sk, tr, uk, vi, zh_CN, zh_TW, test
  *
- * :{ 'en':'English', 'an':'Aragonese', 'bg':'Bulgarian', 'ca':'Catalan', 'cz':'Czech', 'da':'Danish', 
-   'de':'German', 'el':'Greek', 'el_gr':'Greek (Greece)', 'es':'Spanish', 'eu':'Basque-Euskera', 'fi':'Finnish', 
-   'fr':'French', 'gl':'Galician', 'hr':'Croatian', 'it':'Italian', 'jp_kana':'Japanese', 
-   'ko_KR':'Korean (South Korea)', 'nl':'Dutch', 'pl':'Polish', 'pt':'Portuguese', 
-   'pt_br':'Portuguese (Brazilian)', 'ru':'Russian', 'sk':'Slovak', 'tr':'Turkish', 'uk':'Ukrainian', 
+ * :{ 'en':'English', 'an':'Aragonese', 'bg':'Bulgarian', 'ca':'Catalan', 'cz':'Czech', 'da':'Danish',
+   'de':'German', 'el':'Greek', 'el_gr':'Greek (Greece)', 'es':'Spanish', 'eu':'Basque-Euskera', 'fi':'Finnish',
+   'fr':'French', 'gl':'Galician', 'hr':'Croatian', 'it':'Italian', 'jp_kana':'Japanese',
+   'ko_KR':'Korean (South Korea)', 'nl':'Dutch', 'pl':'Polish', 'pt':'Portuguese',
+   'pt_br':'Portuguese (Brazilian)', 'ru':'Russian', 'sk':'Slovak', 'tr':'Turkish', 'uk':'Ukrainian',
    'vi':'Vietnamese', 'zh_CN':'Chinese (Simplified)', 'zh_TW':'Chinese (Traditional)', 'test':'TEST' }
  */
 #define LCD_LANGUAGE en
@@ -185,7 +185,7 @@
  * We encourage you to take advantage of this new feature and we also
  * respectfully request that you retain the unmodified Marlin boot screen.
  */
- 
+
 // Show the Marlin bootscreen on startup. ** ENABLE FOR PRODUCTION **
 #define SHOW_BOOTSCREEN
 
@@ -398,14 +398,14 @@
  *   - Enable DIRECT_MIXING_IN_G1 for M165 and mixing in G1 (from Pia Taubert's reference implementation).
  */
 #define MIXING_EXTRUDER
-#if ENABLED(MIXING_EXTRUDER)  
+#if ENABLED(MIXING_EXTRUDER)
   #define MIXING_STEPPERS 	  4  		// Number of steppers in your mixing extruder
   #define MIXING_VIRTUAL_TOOLS 16  		// Use the Virtual Tool method with M163 and M164
   #define USE_PRECENT_MIXVALUE			// Use percent mix data on LCD setting and gcode command
   #define MIX_STATUS_SCREEN_IMAGE		// show mix rate ICON and data in LCD (only applied in LCD12864)
   #if ENABLED(MIX_STATUS_SCREEN_IMAGE) && DISABLED(CUSTOM_STATUS_SCREEN_IMAGE)
   #define CUSTOM_STATUS_SCREEN_IMAGE
-  #endif  
+  #endif
   //#define DIRECT_MIXING_IN_G1    		// Allow ABCDHI mix factors in G1 movement commands
   #define GRADIENT_MIX           		// Support for gradient mixing with M166 and LCD
   #define RANDOM_MIX					// Support for random mixing with M167 and LCD
