@@ -104,7 +104,7 @@
 #define	OPTION_DUALZ_DRIVE  					//Dual Z driver motor(connect to Z2 motor connector)
 #define OPTION_Z2_ENDSTOP							//Dual Z driver motor(connect to Z2- connector)
 #define	DEFAULT_AUTO_LEVELING	true		//Auto leveling feature is on
-#define	OPTION_PL08N 			    				//Probe use PL_08N
+//#define	OPTION_PL08N 			    				//Probe use PL_08N
 #define	OPTION_BED_COATING						//bed coating Glass/Sticker etc.
 //===========================================================================
 //optional feature
@@ -113,8 +113,8 @@
 //#define	OPTION_BGM								//BGM extruder
 //#define	OPTION_TMC2225_EXTRUDER		//TMC2225 be used to extruder motors
 #define	OPTION_TMC2209_ALL_MOTOR	//TMC2209 be used to all motor
-//#define	OPTION_3DTOUCH						//Probe use 3DTouch or BLTouch
-#define	OPTION_ZLSENSOR						//Probe use ZLSENSOR
+#define	OPTION_3DTOUCH						//Probe use 3DTouch or BLTouch
+//#define	OPTION_ZLSENSOR						//Probe use ZLSENSOR
 //#define	OPTION_REPEAT_PRINTING		//Auto remove prints feature
 //==========================================================================
 //Special
@@ -598,9 +598,13 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_Kp  30.30
-    #define DEFAULT_Ki   1.41
-    #define DEFAULT_Kd 162.77
+    //#define DEFAULT_Kp  30.30
+    //#define DEFAULT_Ki   1.41
+    //#define DEFAULT_Kd 162.77
+    // z9v5 none mixing
+    #define DEFAULT_Kp  20.76
+    #define DEFAULT_Ki   1.73
+    #define DEFAULT_Kd 62.43
   #endif
 #endif // PIDTEMP
 
@@ -777,22 +781,22 @@
  *          TMC5130, TMC5130_STANDALONE, TMC5160, TMC5160_STANDALONE
  * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'L6470', 'L6474', 'POWERSTEP01', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC2209', 'TMC2209_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
  */
-//#define X_DRIVER_TYPE  A4988
-//#define Y_DRIVER_TYPE  A4988
-//#define Z_DRIVER_TYPE  A4988
-//#define X2_DRIVER_TYPE A4988
-//#define Y2_DRIVER_TYPE A4988
-//#define Z2_DRIVER_TYPE A4988
-//#define Z3_DRIVER_TYPE A4988
-//#define Z4_DRIVER_TYPE A4988
-//#define E0_DRIVER_TYPE A4988
-//#define E1_DRIVER_TYPE A4988
-//#define E2_DRIVER_TYPE A4988
-//#define E3_DRIVER_TYPE A4988
-//#define E4_DRIVER_TYPE A4988
-//#define E5_DRIVER_TYPE A4988
-//#define E6_DRIVER_TYPE A4988
-//#define E7_DRIVER_TYPE A4988
+//#define X_DRIVER_TYPE  TMC2209
+//#define Y_DRIVER_TYPE  TMC2209
+//#define Z_DRIVER_TYPE  TMC2209
+//#define X2_DRIVER_TYPE TMC2209
+//#define Y2_DRIVER_TYPE TMC2209
+//#define Z2_DRIVER_TYPE TMC2209
+//#define Z3_DRIVER_TYPE TMC2209
+//#define Z4_DRIVER_TYPE TMC2209
+//#define E0_DRIVER_TYPE TMC2209
+//#define E1_DRIVER_TYPE TMC2209
+//#define E2_DRIVER_TYPE TMC2209
+//#define E3_DRIVER_TYPE TMC2209
+//#define E4_DRIVER_TYPE TMC2209
+//#define E5_DRIVER_TYPE TMC2209
+//#define E6_DRIVER_TYPE TMC2209
+//#define E7_DRIVER_TYPE TMC2209
 
 // Enable this feature if all enabled endstop pins are interrupt-capable.
 // This will remove the need to poll the interrupt pins, saving many CPU cycles.
@@ -841,13 +845,15 @@
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
 
-#if ENABLED(OPTION_TMC2225_EXTRUDER)
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 800 }
-#elif ENABLED(OPTION_TMC2209_ALL_MOTOR)
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 400 }
-#else
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 400 }
-#endif
+//#if ENABLED(OPTION_TMC2225_EXTRUDER)
+//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 800 }
+//#elif ENABLED(OPTION_TMC2209_ALL_MOTOR)
+//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 400 }
+//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 400 } // 2^/2 X, Y
+//#else
+//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 400 }
+//#endif
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 400 } // 2^/2 X, Y
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1205,8 +1211,8 @@
 // @section machine
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR true
-#define INVERT_Y_DIR true
+#define INVERT_X_DIR false
+#define INVERT_Y_DIR false
 #define INVERT_Z_DIR false
 #define	EXTRUDER_DIR (false ^ ENABLED(OPTION_BGM) ^ ENABLED(OPTION_TMC2225_EXTRUDER) ^ ENABLED(OPTION_TMC2209_ALL_MOTOR))
 
@@ -1420,7 +1426,7 @@
   #define GRID_MAX_POINTS_X 		7
   #define GRID_MAX_POINTS_Y 		GRID_MAX_POINTS_X
 	#else
-	#define GRID_MAX_POINTS_X 		5
+	#define GRID_MAX_POINTS_X 		3
   #define GRID_MAX_POINTS_Y 		GRID_MAX_POINTS_X
 	#endif
   #define PROBING_MARGIN_LEFT		PROBING_MARGIN
