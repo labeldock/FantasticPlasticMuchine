@@ -1,5 +1,7 @@
 ## installation
-
+```
+sudo apt update
+```
 ### menuconfig
 
 - Enable extra low-level configuration options
