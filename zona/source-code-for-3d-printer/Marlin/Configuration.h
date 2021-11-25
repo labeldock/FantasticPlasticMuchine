@@ -73,27 +73,19 @@
 #ifndef MOTHERBOARD
   #define MOTHERBOARD BOARD_ZONESTAR_ZM3E4V2
 #endif
-#define OPTION_Z9V5_PRO				//Dwin LCD, Glass bed
 //#define	OPTION_MAX_SIZE				//500x500x400
 //===========================================================================
 // Name displayed in the LCD "Ready" message and Info menu
 //===========================================================================
-#define SHORT_BUILD_VERSION 		"Marlin-2.0.8"
-#ifdef OPTION_Z9V5_PRO
+//ATTENTION: V3.0.0 only applied for Z9V5_MK3
+#define SHORT_BUILD_VERSION 			"Marlin-2.0.8"
 #ifdef OPTION_MAX_SIZE
-#define CUSTOM_MACHINE_NAME 		"Z9V5MaxPro"
+#define CUSTOM_MACHINE_NAME 			"Z9V5MaxPro(MK3)"
 #else
-#define CUSTOM_MACHINE_NAME 		"Z9V5Pro"
+#define CUSTOM_MACHINE_NAME 			"Z9V5Pro(MK3)"
 #endif
-#else
-#ifdef OPTION_MAX_SIZE
-#define CUSTOM_MACHINE_NAME 			"Z9V5Max"
-#else
-#define CUSTOM_MACHINE_NAME 			"Z9V5"
-#endif
-#endif
-#define	FIRMWARE_VERSION					"V1.2.7"
-#define	STRING_DISTRIBUTION_DATE  "2021-11-19"
+#define	FIRMWARE_VERSION					"V2.0.1"
+#define	STRING_DISTRIBUTION_DATE  "2021-11-01"
 #define EEPROM_VERSION 			    	"V83"						//modify it if need auto inilize EEPROM after upload firmware
 #define STRING_CONFIG_H_AUTHOR    "(ZONESTAR, Hally)" 		// Who made the changes.
 #define WEBSITE_URL 							"www.zonestar3d.com"
@@ -104,77 +96,33 @@
 #define	OPTION_DUALZ_DRIVE  					//Dual Z driver motor(connect to Z2 motor connector)
 #define OPTION_Z2_ENDSTOP							//Dual Z driver motor(connect to Z2- connector)
 #define	DEFAULT_AUTO_LEVELING	true		//Auto leveling feature is on
-//#define	OPTION_PL08N 			    				//Probe use PL_08N
+//#define	OPTION_ZLSENSOR								//Probe use ZLSENSOR
 #define	OPTION_BED_COATING						//bed coating Glass/Sticker etc.
+//#define	OPTION_TMC2225_EXTRUDER				//TMC2225 be used to extruder motors
 //===========================================================================
 //optional feature
-#define	OPTION_WIFI_MODULE					//Option WiFi module(ESP 01s)
-#define	OPTION_WIFI_BAUDRATE				//Option WiFi baudrate
-//#define	OPTION_BGM								//BGM extruder
-//#define	OPTION_TMC2225_EXTRUDER		//TMC2225 be used to extruder motors
-#define	OPTION_TMC2209_ALL_MOTOR	//TMC2209 be used to all motor
-#define	OPTION_3DTOUCH						//Probe use 3DTouch or BLTouch
-//#define	OPTION_ZLSENSOR						//Probe use ZLSENSOR
-//#define	OPTION_REPEAT_PRINTING		//Auto remove prints feature
+// #define	OPTION_WIFI_MODULE						//Option WiFi module(ESP 01s) // PREPERENCE // FORCE EJECT
+// #define	OPTION_WIFI_BAUDRATE					//Option WiFi baudrate // PREPERENCE // FORCE EJECT
+//#define	OPTION_HOTENDMAXTEMP				//set the max hotend temperature
+//#define	OPTION_BGM									//BGM extruder
+#define	OPTION_3DTOUCH							//Probe use 3DTouch or BLTouch
+#define	OPTION_TMC2209_ALL_MOTOR		//TMC2209 be used to all motor
+//#define	OPTION_REPEAT_PRINTING			//Auto remove prints feature
 //==========================================================================
-//Special
-/* for Z9V5-MK2, if the serial number V1xxxxxxxxxx and you want to use
- * ZLSENSOR, you have to connect the ZLSENSOR to EXP1 connector and enable
- * this option
-*/
-//#define ZLSENSOR_ON_EXP1						//
-//==========================================================================
-
 //Bed coating
 #if ENABLED(OPTION_BED_COATING)
-#if	ENABLED(OPTION_Z9V5_PRO) && ENABLED(OPTION_PL08N)
-#define	BED_COATING_THICKNESS	3.5			//glass thickness
-#else
 #define	BED_COATING_THICKNESS	0.0			//stikcer thickness
-#endif
 #endif
 //===========================================================================
 //UART port
 #if ENABLED(OPTION_WIFI_MODULE)
 #define WIFI_SERIAL_PORT 2
 #endif
-
-#if ENABLED(OPTION_Z9V5_PRO)
-  #define LCD_SERIAL_PORT 1				//LCD DWIN connect to EXP2
-  #if ENABLED(OPTION_3DTOUCH)
-  #define BLTOUCH_ON_EXP1 				//3DTouch connect to EXP1
-  #endif
-#else															//LCD12864 connect to EXP1
-	#if ENABLED(OPTION_3DTOUCH)
-	#define SERIAL_PORT_2 3					//TFT-LCD35 connect to AUX1
-	#define BLTOUCH_ON_EXP2 				//3DTouch connect to EXP2
-	#else
-  #define SERIAL_PORT_2 1					//TFT-LCD35 connect to EXP2
-  #endif
+#define LCD_SERIAL_PORT 1				//LCD DWIN connect to EXP2
+#if ENABLED(OPTION_3DTOUCH)
+#define BLTOUCH_ON_EXP1 				//3DTouch connect to EXP1
 #endif
-
 //===========================================================================
-/**
- * LCD LANGUAGE
- *
- * Select the language to display on the LCD. These languages are available:
- *
- *   en, an, bg, ca, cz, da, de, el, el_gr, es, eu, fi, fr, gl, hr, it, jp_kana,
- *   ko_KR, nl, pl, pt, pt_br, ru, sk, tr, uk, vi, zh_CN, zh_TW, test
- *
- * :{ 'en':'English', 'an':'Aragonese', 'bg':'Bulgarian', 'ca':'Catalan', 'cz':'Czech', 'da':'Danish',
-   'de':'German', 'el':'Greek', 'el_gr':'Greek (Greece)', 'es':'Spanish', 'eu':'Basque-Euskera', 'fi':'Finnish',
-   'fr':'French', 'gl':'Galician', 'hr':'Croatian', 'it':'Italian', 'jp_kana':'Japanese',
-   'ko_KR':'Korean (South Korea)', 'nl':'Dutch', 'pl':'Polish', 'pt':'Portuguese',
-   'pt_br':'Portuguese (Brazilian)', 'ru':'Russian', 'sk':'Slovak', 'tr':'Turkish', 'uk':'Ukrainian',
-   'vi':'Vietnamese', 'zh_CN':'Chinese (Simplified)', 'zh_TW':'Chinese (Traditional)', 'test':'TEST' }
- */
-#define LCD_LANGUAGE en
-
-#ifdef OPTION_Z9V5_PRO
-#undef LCD_LANGUAGE
-#endif
-
 /**
  * *** VENDORS PLEASE READ ***
  *
@@ -206,12 +154,15 @@
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
 #define SERIAL_PORT -1
+#define BAUDRATE 	  115200
 
 /**
  * Select a secondary serial port on the board to use for communication with the host.
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-// #define SERIAL_PORT_2 1
+// #define SERIAL_PORT_2 -1
+// #define BAUDRATE_2 250000
+
 
 /**
  * This setting determines the communication speed of the printer.
@@ -222,8 +173,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 921600]
  */
-#define BAUDRATE 				115200
-#define WIFI_BAUDRATE   115200
+// #define WIFI_BAUDRATE   115200
 
 
 // Enable the Bluetooth serial interface on AT90USB devices
@@ -400,7 +350,10 @@
 #define MIXING_EXTRUDER
 #if ENABLED(MIXING_EXTRUDER)
   #define MIXING_STEPPERS 	  4  		// Number of steppers in your mixing extruder
-  #define MIXING_VIRTUAL_TOOLS 16  		// Use the Virtual Tool method with M163 and M164
+
+  //#define MIXING_VIRTUAL_TOOLS 16  		// Use the Virtual Tool method with M163 and M164
+  #define MIXING_VIRTUAL_TOOLS 4 // non mixing // PREFERENCE
+
   #define USE_PRECENT_MIXVALUE			// Use percent mix data on LCD setting and gcode command
   #define MIX_STATUS_SCREEN_IMAGE		// show mix rate ICON and data in LCD (only applied in LCD12864)
   #if ENABLED(MIX_STATUS_SCREEN_IMAGE) && DISABLED(CUSTOM_STATUS_SCREEN_IMAGE)
@@ -520,7 +473,7 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 56
+#define TEMP_SENSOR_0 1
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -528,7 +481,7 @@
 #define TEMP_SENSOR_5 0
 #define TEMP_SENSOR_6 0
 #define TEMP_SENSOR_7 0
-#define TEMP_SENSOR_BED 57
+#define TEMP_SENSOR_BED 1
 #define TEMP_SENSOR_PROBE 0
 #define TEMP_SENSOR_CHAMBER 0
 
@@ -564,14 +517,14 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-#define HEATER_0_MAXTEMP 275
-#define HEATER_1_MAXTEMP 275
-#define HEATER_2_MAXTEMP 275
-#define HEATER_3_MAXTEMP 275
-#define HEATER_4_MAXTEMP 275
-#define HEATER_5_MAXTEMP 275
-#define HEATER_6_MAXTEMP 275
-#define HEATER_7_MAXTEMP 275
+#define HEATER_0_MAXTEMP 250
+#define HEATER_1_MAXTEMP 250
+#define HEATER_2_MAXTEMP 250
+#define HEATER_3_MAXTEMP 250
+#define HEATER_4_MAXTEMP 250
+#define HEATER_5_MAXTEMP 250
+#define HEATER_6_MAXTEMP 250
+#define HEATER_7_MAXTEMP 250
 #define BED_MAXTEMP      130
 
 //===========================================================================
@@ -601,7 +554,7 @@
     //#define DEFAULT_Kp  30.30
     //#define DEFAULT_Ki   1.41
     //#define DEFAULT_Kd 162.77
-    // z9v5 none mixing
+    // z9v5 none mixing preference
     #define DEFAULT_Kp  20.76
     #define DEFAULT_Ki   1.73
     #define DEFAULT_Kd 62.43
@@ -800,7 +753,7 @@
 
 // Enable this feature if all enabled endstop pins are interrupt-capable.
 // This will remove the need to poll the interrupt pins, saving many CPU cycles.
-//#define ENDSTOP_INTERRUPTS_FEATURE
+#define ENDSTOP_INTERRUPTS_FEATURE
 
 /**
  * Endstop Noise Threshold
@@ -845,15 +798,13 @@
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
 
-//#if ENABLED(OPTION_TMC2225_EXTRUDER)
-//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 800 }
-//#elif ENABLED(OPTION_TMC2209_ALL_MOTOR)
-//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 400 }
-//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 400 } // 2^/2 X, Y
-//#else
-//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 400 }
-//#endif
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 400 } // 2^/2 X, Y
+#if ENABLED(OPTION_TMC2225_EXTRUDER)
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 800 }
+#elif ENABLED(OPTION_TMC2209_ALL_MOTOR)
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 400 }
+#else
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 400 }
+#endif
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -901,8 +852,10 @@
  */
 #define CLASSIC_JERK
 #if ENABLED(CLASSIC_JERK)
-  #define DEFAULT_XJERK 8.0
-  #define DEFAULT_YJERK 8.0
+  //#define DEFAULT_XJERK 8.0
+  //#define DEFAULT_YJERK 8.0
+  #define DEFAULT_XJERK 12.0 // PREFERENCE
+  #define DEFAULT_YJERK 12.0 // PREFERENCE
   #define DEFAULT_ZJERK 0.4
 
   //#define TRAVEL_EXTRA_XYJERK 0.0     // Additional jerk allowance for all travel moves
@@ -974,12 +927,7 @@
  *
  */
 #if EITHER(OPTION_PL08N,OPTION_ZLSENSOR)
-#if BOTH(OPTION_ZLSENSOR, ZLSENSOR_ON_EXP1)
-#define	Z_MIN_PROBE_PIN		PE14									//ZL_sensor connect to EXP1 pin 5
-#define	PROBE_GND_PIN			PE15									//ZL_sensor connect to EXP1 pin 3
-#else
 #define Z_MIN_PROBE_PIN 	PB13 									//Z_MAX_PIN as probe pin
-#endif
 #elif ENABLED(OPTION_3DTOUCH)
 #define Z_MIN_PROBE_PIN 	BLTOUCH_PROBE_PIN 		//
 #endif
@@ -1111,7 +1059,10 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 0, -35, 0 }
+// #define NOZZLE_TO_PROBE_OFFSET { 0, -35, 0 } // default
+#define NOZZLE_TO_PROBE_OFFSET { 0, -35, -1.11 } // BLTouch PREFERENCE
+
+
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1370,7 +1321,7 @@
  *   leveling in steps so you can manually adjust the Z height at each grid-point.
  *   With an LCD controller the process is guided step-by-step.
  */
-#if ANY(OPTION_PL08N, OPTION_3DTOUCH,OPTION_ZLSENSOR)
+#if ANY(OPTION_PL08N, OPTION_3DTOUCH, OPTION_ZLSENSOR)
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
 #define AUTO_BED_LEVELING_BILINEAR
@@ -1542,7 +1493,7 @@
 // - Move the Z probe (or nozzle) to a defined XY point before Z Homing.
 // - Prevent Z homing when the Z probe is outside bed area.
 //
-//#define Z_SAFE_HOMING
+#define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing
@@ -2277,9 +2228,7 @@
 //
 // Zonestar OLED/LCD 128x64 FULL GRAPHICS CONTROLLER
 //
-#ifndef OPTION_Z9V5_PRO
-#define ZONESTAR_12864LCD           // Graphical (DOGM) with ST7920 controller
-#endif
+//#define ZONESTAR_12864LCD           // Graphical (DOGM) with ST7920 controller
 //#define ZONESTAR_12864OLED          // 1.3" OLED with SH1106 controller (default)
 //#define ZONESTAR_12864OLED_SSD1306  // 0.96" OLED with SSD1306 controller
 
@@ -2462,13 +2411,10 @@
 //
 //#define DWIN_CREALITY_LCD
 
-
 //
 // ZONESTAR DWIN LCD display with Rotary Encoder and beeper
 //
-#ifdef OPTION_Z9V5_PRO
 #define ZONESTAR_DWIN_LCD
-#endif
 
 //
 // ADS7843/XPT2046 ADC Touchscreen such as ILI9341 2.8
