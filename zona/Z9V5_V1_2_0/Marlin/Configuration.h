@@ -1417,7 +1417,7 @@
   #define PROBING_MARGIN_FRONT	PROBING_MARGIN
   #define PROBING_MARGIN_BACK		PROBING_MARGIN
 
-  #define AUTO_UPDATA_PROBE_Z_OFFSET			//Add G29 N to catch the Probe Z offset
+  //#define AUTO_UPDATA_PROBE_Z_OFFSET			//Add G29 N to catch the Probe Z offset
 
   // Probe along the Y axis, advancing X after each column
   //#define PROBE_Y_FIRST

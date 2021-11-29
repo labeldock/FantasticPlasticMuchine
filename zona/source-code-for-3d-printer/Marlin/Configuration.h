@@ -351,8 +351,7 @@
 #if ENABLED(MIXING_EXTRUDER)
   #define MIXING_STEPPERS 	  4  		// Number of steppers in your mixing extruder
 
-  //#define MIXING_VIRTUAL_TOOLS 16  		// Use the Virtual Tool method with M163 and M164
-  #define MIXING_VIRTUAL_TOOLS 4 // non mixing // PREFERENCE
+  #define MIXING_VIRTUAL_TOOLS 16  		// Use the Virtual Tool method with M163 and M164
 
   #define USE_PRECENT_MIXVALUE			// Use percent mix data on LCD setting and gcode command
   #define MIX_STATUS_SCREEN_IMAGE		// show mix rate ICON and data in LCD (only applied in LCD12864)
@@ -554,10 +553,16 @@
     //#define DEFAULT_Kp  30.30
     //#define DEFAULT_Ki   1.41
     //#define DEFAULT_Kd 162.77
+
     // z9v5 none mixing preference
-    #define DEFAULT_Kp  20.76
-    #define DEFAULT_Ki   1.73
-    #define DEFAULT_Kd 62.43
+    //#define DEFAULT_Kp  20.76
+    //#define DEFAULT_Ki   1.73
+    //#define DEFAULT_Kd 62.43
+
+    // z9v5 mixing preference
+    #define DEFAULT_Kp 54.85
+    #define DEFAULT_Ki 3.53
+    #define DEFAULT_Kd 213.27
   #endif
 #endif // PIDTEMP
 
@@ -1060,13 +1065,16 @@
  *     O-- FRONT --+
  */
 // #define NOZZLE_TO_PROBE_OFFSET { 0, -35, 0 } // default
-#define NOZZLE_TO_PROBE_OFFSET { 0, -35, -1.11 } // BLTouch PREFERENCE
+#define MY_X_PROBE_OFFSET 0
+#define MY_Y_PROBE_OFFSET -35
+#define MY_Z_PROBE_OFFSET -2.74
+#define NOZZLE_TO_PROBE_OFFSET { MY_X_PROBE_OFFSET, MY_Y_PROBE_OFFSET, MY_Z_PROBE_OFFSET } // BLTouch PREFERENCE
 
 
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 		45
+#define PROBING_MARGIN 		48
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_SPEED (133*60)
@@ -1385,7 +1393,7 @@
   #define PROBING_MARGIN_FRONT	PROBING_MARGIN
   #define PROBING_MARGIN_BACK		PROBING_MARGIN
 
-  #define AUTO_UPDATA_PROBE_Z_OFFSET			//Add G29 N to catch the Probe Z offset
+  //#define AUTO_UPDATA_PROBE_Z_OFFSET			//Add G29 N to catch the Probe Z offset
 
   // Probe along the Y axis, advancing X after each column
   //#define PROBE_Y_FIRST
@@ -1497,7 +1505,7 @@
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing
-  #define Z_SAFE_HOMING_Y_POINT Y_CENTER  // Y point for Z homing
+  #define Z_SAFE_HOMING_Y_POINT (Y_CENTER - MY_Y_PROBE_OFFSET)  // Y point for Z homing
 #endif
 
 // Homing speeds (mm/min)
