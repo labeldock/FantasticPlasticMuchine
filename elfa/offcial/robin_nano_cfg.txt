@@ -1,0 +1,325 @@
+#===================�߼���������=======================================
+>cfg_insert_det_module			0			#����ϵ���ģ��?(1:mks 220det;0:mks pwc)
+
+>cfg_have_ups_device			0			#�����Ƿ��䱸UPS��Դ(1:��;0:��)
+
+>cfg_print_over_auto_close		1			#����ػ�����?(1:������0:�ر�)������䡰����ػ�ģ�顱ʹ��
+
+>cfg_filament_det0_trigger_level	1			#E0���ϼ��ӿڵĴ�����ƽ����(1:�ߵ�ƽ����;0:�͵�ƽ����)
+>cfg_filament_det1_trigger_level	0			#E1���ϼ��ӿڵĴ�����ƽ����(1:�ߵ�ƽ����;0:�͵�ƽ����)
+
+>cfg_filament_load_length		100			#"����"���ϵĳ���
+>cfg_filament_load_speed		2400			#"����"�����ٶ�����(mm/min)
+>cfg_filament_load_limit_temperature	200			#"����"������������¶�����?
+
+>cfg_filament_unload_length		100			#"����"���ϵĳ���
+>cfg_filament_unload_speed		800			#"����"�����ٶ�����(mm/min)
+>cfg_filament_unload_limit_temperature	200			#"����"������������¶�����?
+
+#=========================== ��ƽ��ť����  =============================
+
+>cfg_leveling_mode			1			#��ƽģʽ���á�1:�Զ���ƽ��0:�ֶ���ƽ��
+
+#=========================== �ֶ���ƽ ==================================
+
+>cfg_point_number			5			#�ֶ���ƽ�ĸ���:(����3,4,5����)
+
+>cfg_point1:250,250						
+>cfg_point2:50,250
+>cfg_point3:50,50						#�ֶ���ƽʱ��5�����λ������?
+>cfg_point4:250,50
+>cfg_point5:155,155
+
+#========================== �Զ���ƽ ===================================
+
+>cfg_auto_leveling_cmd:G28;G29;
+
+#===================��������==========================================
+>cfg_language_adjust_type		1	#�����л���ʽ����(1:��Ļ��ť�л�����,0:�����ļ�ѡ���л�����).
+
+>cfg_language_type			1	#����(1:��������;2:��������;3:Ӣ��;4:����;5:��������,6:����,7:�������?)��
+						#������ֻ����cfg_multiple_language����Ϊ0ʱ��Ч.
+#==================�Զ��幦�ܰ�ť����=================================
+#���ý����Զ��幦��1
+>setmenu_func1_display		1		#1:��ʾ��ť��0:����ʾ��ť
+
+#ÿ��ָ������÷ֺ�?";"����
+>setmenu_func1:M81;
+
+>moreitem_pic_cnt		0		#"����"��ť����
+
+#��ť1~��ť7����ָ��
+#ÿ��ָ������÷ֺ�?";"����
+#ÿ����ť����ָ��������С��200�ֽ�
+>moreitem_button1_cmd:G28 X0;G28 Y0;G28 Z0;
+
+>moreitem_button2_cmd:G28 X0;G28 Y0;G28 Z0;
+
+>moreitem_button3_cmd:G28 X0;G28 Y0;G28 Z0;
+
+>moreitem_button4_cmd:G28 X0;G28 Y0;G28 Z0;
+
+>moreitem_button5_cmd:G28 X0;G28 Y0;G28 Z0;
+
+>moreitem_button6_cmd:G28 X0;G28 Y0;G28 Z0;
+
+>moreitem_button7_cmd:G28 X0;G28 Y0;G28 Z0;
+
+#��ӡ����"����"��ť����
+>morefunc_cnt			0
+
+#��ť1~��ť6��������
+>morefunc1_cmd:G28;
+>morefunc2_cmd:G28;
+>morefunc3_cmd:G28;
+>morefunc4_cmd:G28;
+>morefunc5_cmd:G28;
+>morefunc6_cmd:G28;
+>morefunc7_cmd:G28;
+
+#-------------------------------------------------------------
+########  ��ʾЧ�����ƣ�������LOGO�����뿴˵���飩 ##########
+
+>cfg_background_color		0x000000	#��Ļ����ɫ
+>cfg_title_color		0xFFFFFF	#��������
+>cfg_state_bkcolor		0x000000	#״̬������ɫ
+>cfg_state_textcolor		0xFFFFFF	#״̬��������ɫ
+>cfg_filename_bkcolor		0x000000	#�ļ�Ŀ¼��ť����ɫ
+>cfg_filename_textcolor		0xFFFFFF	#�ļ�Ŀ¼��ť������ɫ
+>cfg_btn_bkcolor		0x000000	#ͨ�ð�ť����ɫ
+>cfg_btn_textcolor		0xFFFFFF	#ͨ�ð�ť������ɫ
+>cfg_state_btn_bkcolor		0x000000	#״̬��ť����ɫ
+>cfg_state_btn_textcolor	0xFFFFFF	#״̬��ť������ɫ
+>cfg_back_btn_bkcolor		0x000000	#"����"������ɫ
+>cfg_back_btn_textcolor		0xFFFFFF	#"����"��������ɫ
+>cfg_sel_btn_bkcolor		0x000000	#ѡ����ť����ɫ
+>cfg_sel_btn_textcolor		0xFFFFFF	#ѡ����ť������ɫ
+>cfg_dialog_btn_bkcolor		0xff0000	#�Ի���ť����ɫ
+>cfg_dialog_btn_textcolor	0xFFFFFF	#�Ի���ť������ɫ
+
+>cfg_btn_text_offset		23		#��ť����ƫ�Ƶױ�λ��(��λ:����)
+
+>cfg_screen_display_mode	0		#��Ļ��ҳ��ʾģʽ(0:����ģʽ��1:��Լģʽ)
+
+#============================= �������� =========================
+
+>MACHINETPYE  2		#��������,0:Cartesian; 1:DELTA ; 2:COREXY
+
+>HAS_TEMP_BED 1	        #�����ȴ�(1:����,0:��ֹ)
+
+>EXTRUDERS    1		#���ü���ͷ����
+
+#====2��1������====
+>SINGLE_NOZZLE		0             #(0:��֧��;1:֧��)
+
+
+>Z2_STEPPER_DRIVERS	0	#ʹ��˫Z����,		1:����; 0:��ֹ;
+>Z2_ENDSTOPS		0	#ʹ��Z��˫��λ;   	0:����;	1:����;(�����˹���,���Զ���ƽ�����޷�ʹ��)
+>Z2_USE_ENDSTOP		0	#Z��ڶ�����λ�ӿ�?;  	0:��ʹ��;  1:Z_MAX;	2:Z_MIN
+
+# XYZ����г�? (��λ:mm)
+>X_MIN_POS 0
+>Y_MIN_POS 0
+>Z_MIN_POS 0
+>X_MAX_POS 300
+>Y_MAX_POS 300
+>Z_MAX_POS 345
+
+# ��ͣ�󼷳�ͷֹͣλ��
+>FILAMENT_CHANGE_X_POS 290	 # Xλ��(��������ֵ)
+>FILAMENT_CHANGE_Y_POS 290	 # Yλ��(��������ֵ)
+>FILAMENT_CHANGE_Z_ADD 5	 # Zλ��(��������?)
+
+#ʹ��˫ͷʱ���ڶ�������ͷ���һ��������XYƫ��ֵ. 
+>HOTEND_OFFSET_X 	0.00 		#x��ƫ��(��λ:mm) 
+>HOTEND_OFFSET_Y 	0.00  		#y��ƫ��(��λ:mm) 
+#============================== �����������? ============================
+#�����������?.
+>INVERT_X_DIR 	                0	
+>INVERT_Y_DIR 	                0
+>INVERT_Z_DIR                	1
+>INVERT_E0_DIR           	1
+>INVERT_E1_DIR           	0
+
+#�ƶ���������
+>DEFAULT_X_STEPS_PER_UNIT	80	#X��Ĭ������ (steps/mm)	
+>DEFAULT_Y_STEPS_PER_UNIT	80	#Y��Ĭ������ (steps/mm)	
+>DEFAULT_Z_STEPS_PER_UNIT	400	#Z��Ĭ������ (steps/mm)	
+>DEFAULT_E0_STEPS_PER_UNIT	398.087	#E��Ĭ������ (steps/mm)	
+>DEFAULT_E1_STEPS_PER_UNIT	400	#E��Ĭ������ (steps/mm)	
+
+# FEEDRATE
+>DEFAULT_X_MAX_FEEDRATE		120	#X��Ĭ���ٶ� (mm/s)		
+>DEFAULT_Y_MAX_FEEDRATE		120	#Y��Ĭ���ٶ� (mm/s)		
+>DEFAULT_Z_MAX_FEEDRATE		4	#Z��Ĭ���ٶ� (mm/s)		
+>DEFAULT_E0_MAX_FEEDRATE	         	70	      #E��Ĭ���ٶ� (mm/s)		
+>DEFAULT_E1_MAX_FEEDRATE		70	        #E��Ĭ���ٶ� (mm/s)	
+
+# ACCELERATION
+>DEFAULT_X_MAX_ACCELERATION	500	#X��Ĭ�������ٶ� (change/s) change = mm/s
+>DEFAULT_Y_MAX_ACCELERATION	500	#Y��Ĭ�������ٶ� (change/s) change = mm/s
+>DEFAULT_Z_MAX_ACCELERATION	100	#Z��Ĭ�������ٶ� (change/s) change = mm/s
+>DEFAULT_E0_MAX_ACCELERATION	2000	#E��Ĭ�������ٶ� (change/s) change = mm/s
+>DEFAULT_E1_MAX_ACCELERATION	2000	#E��Ĭ�������ٶ� (change/s) change = mm/s
+
+>DEFAULT_ACCELERATION		400	#X,Y,Z,E ��ӡʱ��Ĭ�ϼ��ٶ�		
+>DEFAULT_RETRACT_ACCELERATION	500	#X,Y,Z,E �س�Ĭ�ϼ��ٶ�		
+>DEFAULT_TRAVEL_ACCELERATION	500	#X,Y,Z �Ǵ�ӡʱ��Ĭ�ϼ��ٶ�	
+>DEFAULT_MINIMUMFEEDRATE	0.0	#Ĭ����С�ٶ�						
+>DEFAULT_MINSEGMENTTIME		20000	#�����ʱ��һ���ƶ��������Сʱ��(��λms). 
+>DEFAULT_MINTRAVELFEEDRATE	0.0	#		
+
+>DEFAULT_XJERK 			20.0	#Ĭ��X�� Jerk (mm/s)	
+>DEFAULT_YJERK 			20.0	#Ĭ��Y�� Jerk (mm/s)	
+>DEFAULT_ZJERK 			0.4	#Ĭ��Z�� Jerk (mm/s)	
+>DEFAULT_EJERK 			5.0	#Ĭ��E�� Jerk (mm/s)	
+
+#For Inverting Stepper Enable Pins  (0:Low,1:High)
+>X_ENABLE_ON		0
+>Y_ENABLE_ON		0
+>Z_ENABLE_ON		0
+>E_ENABLE_ON		0
+
+#============================= �������� ============================
+>TEMP_SENSOR_0		1		#1: 100k������-3 : MAX31855�ȵ�ż
+
+>EXTRUDE_MINTEMP 	170		#��ӡʱ,����������¶�?(�𱣻�����)
+>HEATER_0_MINTEMP	5		#����0��С�¶�ֵ
+>HEATER_0_MAXTEMP 	275		#����0����¶��?
+>HEATER_1_MINTEMP	5		#����1��С�¶�ֵ
+>HEATER_1_MAXTEMP 	275		#����1����¶��?
+>BED_MAXTEMP 		150		#�ȴ�����¶��?
+
+#======================== ������������ =======================
+>THERMAL_PROTECTION_PERIOD 		240    	#��λ:��
+>THERMAL_PROTECTION_HYSTERESIS 		5     	#��λ:��
+>WATCH_TEMP_PERIOD 			240	#��λ:��
+>WATCH_TEMP_INCREASE 			2	#��λ:��
+>THERMAL_PROTECTION_BED_PERIOD 		240   	#��λ:��
+>THERMAL_PROTECTION_BED_HYSTERESIS 	5 	#��λ:��
+>WATCH_BED_TEMP_PERIOD 			180      #��λ:��
+>WATCH_BED_TEMP_INCREASE 		2       #��λ:��
+
+# ����ͷ�¶ȵ��ز�������.
+>PIDTEMPE			1	# ģʽѡ��1:PID; 0:bang-bang
+>DEFAULT_Kp			22.2	# Pֵ����
+>DEFAULT_Ki			1.08	# Iֵ����
+>DEFAULT_Kd			114	# Dֵ����
+
+#�ȴ��¶ȵ��ز�������..
+>PIDTEMPBED			0	# ģʽѡ��1:PID; 0:bang-bang
+>DEFAULT_bedKp			10.00	# Pֵ����
+>DEFAULT_bedKi			0.023	# Iֵ����
+>DEFAULT_bedKd			305.4	# Dֵ����
+
+
+#============================== ��λ�������� ===========================
+
+>MIN_SOFTWARE_ENDSTOPS	 1              # 0:��ֹ����λ;  1:��������λ.
+>MAX_SOFTWARE_ENDSTOPS 	 1              # 0:��ֹ����λ;  1:��������λ.
+
+# ������λ���صĽ����ź�.
+>X_MIN_ENDSTOP_INVERTING 1		# X_MIN��λ���س���/����ѡ��
+>Y_MIN_ENDSTOP_INVERTING 0		# Y_MIN��λ���س���/����ѡ��
+>Z_MIN_ENDSTOP_INVERTING 0		# Z_MIN��λ���س���/����ѡ��
+>X_MAX_ENDSTOP_INVERTING 0		# X_MAX��λ���س���/����ѡ��
+>Y_MAX_ENDSTOP_INVERTING 0		# Y_MAX��λ���س���/����ѡ��
+>Z_MAX_ENDSTOP_INVERTING 0		# Z_MAX��λ���س���/����ѡ��
+>FIL_RUNOUT_INVERTING 	1		# ���Ͽ��س���/����ѡ��
+
+>Z_MIN_PROBE_ENDSTOP_INVERTING  0		# Z_PROBE��λ���س���/��������.
+
+# ָ����λ���ػ�̽���ʹ�ýӿ�?.
+>USE_XMIN_PLUG	0			# 1:ʹ��; 0:��ʹ��
+>USE_YMIN_PLUG	0			# 1:ʹ��; 0:��ʹ��
+>USE_ZMIN_PLUG	1			# 1:ʹ��; 0:��ʹ��
+>USE_XMAX_PLUG	1			# 1:ʹ��; 0:��ʹ��
+>USE_YMAX_PLUG	1			# 1:ʹ��; 0:��ʹ��
+>USE_ZMAX_PLUG	1			# 1:ʹ��; 0:��ʹ��
+
+
+#==============================  �������� ==============================
+
+>X_HOME_DIR 1				# X����㷽��?; 1=MAX����, -1=MIN���� :[-1,1]
+>Y_HOME_DIR 1				# Y����㷽��?; 1=MAX����, -1=MIN���� :[-1,1]
+>Z_HOME_DIR -1				# Z����㷽��?; 1=MAX����, -1=MIN���� :[-1,1]
+>HOMING_FEEDRATE_XY 6400                # XY������ٶ�? (mm/m)
+>HOMING_FEEDRATE_Z  600                 # Z������ٶ�? (mm/m)
+>HOME_Y_BEFORE_X	0       	# ����ʱxy���˳��?,0: X�Ȼ���; 1:Y�Ȼ��㣻
+
+
+#============================= Z��̽������ =============================
+#̽��ӿ�Z-Min��Z-Max.
+>Z_MIN_PROBE_PIN_MODE		0	# 0:��ʹ��; 1:��Z_MIN; 2:��ZMAX
+
+>Z_PROBE_OFFSET_FROM_EXTRUDER	0	# Z ƫ��: -below +above  [the nozzle]		
+>X_PROBE_OFFSET_FROM_EXTRUDER	0	# X ƫ��: -left  +right  [of the nozzle]
+>Y_PROBE_OFFSET_FROM_EXTRUDER	-20	# Y ƫ��: -front +behind [the nozzle]
+>XY_PROBE_SPEED 		6000	# ̽��XY���ƶ��ٶ� (mm/m) 
+>Z_PROBE_SPEED_FAST 		6000	# Speed for the first approach when double-probing (with PROBE_DOUBLE_TOUCH)
+>Z_PROBE_SPEED_SLOW 		600	# Speed for the "accurate" probe of each point
+>Z_SAFE_HOMING                1            #
+
+#============================= Z��̽������ =============================
+>BLTOUCH			1	# 0:����BLTOUCH; 1:����BLTOUCH
+
+
+#=============================== �ȴ���ƽ���� ==============================
+
+>BED_LEVELING_METHOD 		3	# 0:��ʹ�õ�ƽ; 3:����Զ����?; 5:�ֶ�������?	
+
+>GRID_MAX_POINTS_X 		4	# x�᷽ʽ��ƽ����. <= 15
+>GRID_MAX_POINTS_Y 		4	# y�᷽���ƽ����?. <= 15	
+>Z_CLEARANCE_DEPLOY_PROBE	10	# Z��̧��/���µľ���.> 0
+>Z_CLEARANCE_BETWEEN_PROBES	6	# Z����������ƽ��ĵ��ƶ��߶�?. > 0
+
+# ����̽���ܹ������ȴ��ı߽����?.
+>LEFT_PROBE_BED_POSITION 	50	
+>RIGHT_PROBE_BED_POSITION 	250
+>FRONT_PROBE_BED_POSITION 	50	
+>BACK_PROBE_BED_POSITION 	250
+
+>MESH_INSET			20	# MESH_BED_LEVELING��ƽģʽ�±߽���뷶�?
+
+
+#============================== Delta�������� =============================
+>DELTA_SEGMENTS_PER_SECOND	40      #--default
+>DELTA_DIAGONAL_ROD		346.75	#Center-to-center distance of the holes in the diagonal push rods.	
+>DELTA_SMOOTH_ROD_OFFSET	211.5	#Horizontal offset from middle of printer to smooth rod center.
+>DELTA_EFFECTOR_OFFSET		28	#Horizontal offset of the universal joints on the end effector.
+>DELTA_CARRIAGE_OFFSET		14.5	#Horizontal offset of the universal joints on the carriages.
+>DELTA_RADIUS			169	#Horizontal distance bridged by diagonal push rods when effector is centered.	
+>DELTA_HEIGHT			302	#height from z=0.00 to home position
+>DELTA_PRINTABLE_RADIUS		125	#Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
+>DELTA_CALIBRATION_RADIUS	100	#set the radius for the calibration probe points - max 0.8 * DELTA_PRINTABLE_RADIUS 
+
+
+#============================== Wifi ���� =============================
+>CFG_WIFI_MODE			0			#wifi ģʽ(0:sta;1:ap)
+>CFG_WIFI_AP_NAME		WiFitest		#wifi ����
+>CFG_WIFI_KEY_CODE		makerbase		#wifi ����
+
+>CFG_CLOUD_ENABLE		1			#�Ʒ���ʹ��(1:ʹ�ܣ�0:��ֹ)
+>CFG_WIFI_CLOUD_HOST		www.baizhongyun.cn	#�Ʒ�������
+>CFG_CLOUD_PORT			10086			#�Ʒ���˿�?
+
+#====LEDʹ������====
+>ENABLE_LED		0		#(0:��ʹ��;1:ʹ��)
+
+#������Ϣ
+>about_type:ELF
+>about_version:Version:2.6
+
+
+#====�ػ���ťʹ������====
+>ENABLE_OFF		1		#(0:��ʹ��;1:ʹ��)
+
+#����ػ���ʱʱ��?��λ���룩
+>PRINT_FINISHED_COUNT 180
+
+#����ģʽ����
+>cfg_Standby_mode		1			#�Ƿ������ѹ��ܣ�0���رգ�1��������
+>7           360                     #���ý�������ʱ�䣨��λ���룩
+
+
+#end.
