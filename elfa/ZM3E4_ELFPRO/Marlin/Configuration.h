@@ -104,19 +104,19 @@
 #define	OPTION_DUALZ_DRIVE  					//Dual Z driver motor(connect to Z2 motor connector)
 #define OPTION_Z2_ENDSTOP							//Dual Z driver motor(connect to Z2- connector)
 #define	DEFAULT_AUTO_LEVELING	true		//Auto leveling feature is on
-#define	OPTION_PL08N 			    				//Probe use PL_08N
+// #define	OPTION_PL08N 			    				//Probe use PL_08N
 #define	OPTION_BED_COATING						//bed coating Glass/Sticker etc.
 //===========================================================================
 
 //===========================================================================
 //optional feature
-#define	OPTION_WIFI_MODULE			//Option WiFi module(ESP 01s)
-#define	OPTION_WIFI_BAUDRATE			//Option WiFi baudrate
+//#define	OPTION_WIFI_MODULE			//Option WiFi module(ESP 01s)
+//#define	OPTION_WIFI_BAUDRATE			//Option WiFi baudrate
 //#define	OPTION_BGM								//BGM extruder
 //#define	OPTION_TMC2225_EXTRUDER		//TMC2225 be used to extruder motors
 #define	OPTION_TMC2209_ALL_MOTOR	//TMC2209 be used to all motor
-//#define	OPTION_3DTOUCH						//Probe use 3DTouch or BLTouch
-#define	OPTION_ZLSENSOR						//Probe use ZLSENSOR
+#define	OPTION_3DTOUCH						//Probe use 3DTouch or BLTouch
+//#define	OPTION_ZLSENSOR						//Probe use ZLSENSOR
 //#define	OPTION_REPEAT_PRINTING		//Auto remove prints feature
 //==========================================================================
 //Bed coating
@@ -240,7 +240,7 @@
 #define DEFAULT_NOMINAL_FILAMENT_DIA 1.75
 
 // For Cyclops or any "multi-extruder" that shares a single nozzle.
-#define SINGLENOZZLE
+// #define SINGLENOZZLE
 
 // Save and restore temperature and fan speed on tool-change.
 // Set standby for the unselected tool with M104/106/109 T...
