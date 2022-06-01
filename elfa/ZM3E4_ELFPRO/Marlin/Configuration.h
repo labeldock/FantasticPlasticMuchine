@@ -234,7 +234,7 @@
 
 // This defines the number of extruders
 // :[0, 1, 2, 3, 4, 5, 6, 7, 8]
-#define EXTRUDERS 4
+#define EXTRUDERS 1
 
 // Generally expected filament diameter (1.75, 2.85, 3.0, ...). Used for Volumetric, Filament Width Sensor, etc.
 #define DEFAULT_NOMINAL_FILAMENT_DIA 1.75
@@ -514,7 +514,7 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 56
+#define TEMP_SENSOR_0 1
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -553,7 +553,7 @@
 #define HEATER_5_MINTEMP   5
 #define HEATER_6_MINTEMP   5
 #define HEATER_7_MINTEMP   5
-#define BED_MINTEMP        0
+#define BED_MINTEMP        5
 
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
@@ -566,7 +566,7 @@
 #define HEATER_5_MAXTEMP 275
 #define HEATER_6_MAXTEMP 275
 #define HEATER_7_MAXTEMP 275
-#define BED_MAXTEMP      130
+#define BED_MAXTEMP      150
 
 //===========================================================================
 //============================= PID Settings ================================
@@ -592,9 +592,9 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_Kp  30.30
-    #define DEFAULT_Ki   1.41
-    #define DEFAULT_Kd 162.77
+    #define DEFAULT_Kp  22.2
+    #define DEFAULT_Ki  1.08
+    #define DEFAULT_Kd  114
   #endif
 #endif // PIDTEMP
 
@@ -1094,7 +1094,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 0, -35, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 0, -20, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1232,27 +1232,33 @@
 // @section machine
 
 // The size of the print bed
-#ifdef OPTION_MAX_SIZE
-#define X_BED_SIZE 510
-#define Y_BED_SIZE 510
-#else
-#define X_BED_SIZE 310
-#define Y_BED_SIZE 310
-#endif
+// #ifdef OPTION_MAX_SIZE
+// #define X_BED_SIZE 510
+// #define Y_BED_SIZE 510
+// #else
+// #define X_BED_SIZE 310
+// #define Y_BED_SIZE 310
+// #endif
+#define X_BED_SIZE 280
+#define Y_BED_SIZE 280
+
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#ifdef OPTION_MAX_SIZE
-#define X_MIN_POS -5
-#define Y_MIN_POS -18
-#else
+// #ifdef OPTION_MAX_SIZE
+// #define X_MIN_POS -5
+// #define Y_MIN_POS -18
+// #else
+// #define X_MIN_POS 0
+// #define Y_MIN_POS -18
+// #endif
+
 #define X_MIN_POS 0
 #define Y_MIN_POS -18
-#endif
 
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 400
+#define Z_MAX_POS 345
 
 /**
  * Software Endstops
