@@ -11,6 +11,8 @@ Creativity ELF PRO
 - PEI로 교체하였습니다.
 - 보드 옆에 쿨러가 있던 자리가 있지만 불필요하다 판단하여 제거했습니다.
 - ZM3E4에 USB가 활성되지 않아 작업 중 중단되어 있습니다.
+- 본체 내 작은 마이크로프로세서는 NodeMCU로 릴레이의 전원을 유지하도록 하였습니다.
+  - reley_elf_NodeMCU 참조 부탁드립니다.
 
 ## 사진
 ![Uploading KakaoTalk_20220602
